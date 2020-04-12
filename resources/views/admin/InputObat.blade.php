@@ -6,7 +6,7 @@
 					<!-- OVERVIEW -->
 					<div class="panel panel-headline">
 						<div class="panel-heading">
-							<h3 class="panel-title">Dasboard</h3>
+							<h3 class="panel-title">APOTEK LAKSAMANA</h3>
 							<p class="panel-subtitle">APRIL 2020</p>
 						</div>
 						<div class="panel-body">
@@ -47,6 +47,10 @@
                             @if(isset($obat))?@method('PUT')
                             @endif
                         <div class="col-md-12">
+                        <div class="panel">
+								<div class="panel-heading">
+									<h3 class="panel-title">DATA OBAT</h3>
+								</div>
                         <div class="form-group">
                             <label class="control-label col-lg-2">Nama Obat</label>
                             <div class="col-lg-10">
