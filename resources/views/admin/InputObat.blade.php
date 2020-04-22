@@ -82,7 +82,7 @@
                         <div class="form-group">
                              <label class="control-label col-lg-2">kadaluarsa</label>
                              <div class="col-lg-10">
-                            <input type="text" value="{{(isset($obat))?$obat->kadaluarsa:old('kadaluarsa')}}" name="kadaluarsa" class="form-control">
+                            <input placeholder="Masukan tanggal" type="text" value="{{(isset($obat))?$obat->kadaluarsa:old('kadaluarsa')}}" name="kadaluarsa" class="form-control datepicker">
                         @error('kadaluarsa')<small style="color:red">{{$message}}</small>@enderror
                         </div>
                         </div>

@@ -18,3 +18,7 @@ Route::get('/', function () {
 /*Route::get('/obat', 'ObatController@index');*/
 
 Route::resource('obat', 'ObatController');
+Auth::routes();
+
+Route::get('/home', 'ObatController@index')->name('home');
+Route::get('/ppl', 'pplController@index')->name('ppl');

@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="{{asset('assets/vendor/chartist/css/chartist-custom.css')}}">
 	<!-- MAIN CSS -->
 	<link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
+	<link rel="stylesheet" href="{{asset('assets/plugin/datepicker/css/datepicker.css')}}">
 	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
 	<link rel="stylesheet" href="{{asset('assets/css/demo.css')}}">
 	<!-- GOOGLE FONTS -->
@@ -69,13 +70,23 @@
 							</ul>
 						</li>
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{asset('assets/img/Mega.JPG')}}"> <span>Megawati</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
-							<ul class="dropdown-menu">
-								<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
-								<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
-								<li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
-								<li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
-							</ul>
+								<li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
 						</li>
 						<!-- <li>
 							<a class="update-pro" href="https://www.themeineed.com/downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
@@ -135,6 +146,16 @@
 	<script src="{{asset('assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js')}}"></script>
 	<script src="{{asset('assets/vendor/chartist/js/chartist.min.js')}}"></script>
 	<script src="{{asset('assets/scripts/klorofil-common.js')}}"></script>
+	<script type="text/javascript" src="{{asset('assets/plugin/datepicker/js/bootstrap-datepicker.js')}}"></script>
+	<script type="text/javascript">
+ 		$(function(){
+  		$(".datepicker").datepicker({
+      		format: 'yyyy-mm-dd',
+      		autoclose: true,
+      		todayHighlight: true,
+  			});
+ 		});
+	</script>
 	<script>
 	$(function() {
 		var data, options;
